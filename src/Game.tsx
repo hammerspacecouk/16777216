@@ -3,6 +3,7 @@ import {GRID} from "./styles/variables";
 import {ColourScore} from "./components/organisms/ColourScore";
 import {SIZES} from "./styles/typography";
 import {useGameState} from "./contexts/GameContext/GameContext";
+import {Districts} from "./components/organisms/Districts";
 
 export const Game = () => {
     const {state} = useGameState();
@@ -19,6 +20,7 @@ export const Game = () => {
                 <ColourScore colour="green" />
                 <ColourScore colour="blue" />
             </StyledItems>
+            <Districts />
         </div>
     );
 };

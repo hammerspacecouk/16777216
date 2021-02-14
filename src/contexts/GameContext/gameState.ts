@@ -12,20 +12,30 @@ export interface IScore {
     calculationTime: number;
 }
 
+export interface IVoter {
+    id: number;
+    party: 'red' | 'green' | 'blue' | null;
+}
+
 export interface IGameState {
     score: {
         red: IScore;
         green: IScore;
         blue: IScore;
-    }
+    },
+    voters: IVoter[];
 }
 
 export const emptyGameState: IGameState = {
     score: {
-        red: { value: 0, rate: 0, calculationTime: 0},
-        green: { value: 0, rate: 0, calculationTime: 0},
-        blue: { value: 0, rate: 0, calculationTime: 0},
-    }
+        red: { value: 100000, rate: 0, calculationTime: 0},
+        green: { value: 100000, rate: 0, calculationTime: 0},
+        blue: { value: 100000, rate: 0, calculationTime: 0},
+    },
+    voters: Array.from({length: 121}, (item, index) => ({
+        id: index,
+        party: null,
+    })),
 };
 
 export type GameAction =
